@@ -1,0 +1,5 @@
+.venv
+manage.py
+htmlcov
+.coverage
+/myenv

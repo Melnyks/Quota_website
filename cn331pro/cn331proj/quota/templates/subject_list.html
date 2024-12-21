@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>subject_list</title>
+{% endblock  %}
+
+{% block content %}
+    <h1 class="container" style="text-align: center;">Subject Quota List</h1>
+    {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-success d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                <div>
+                  {{message}}
+                </div>
+              </div>
+            {% endfor %}
+        {% endif %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Subject Code</th>
+            <th scope="col">Subject Name</th>
+            <th scope="col">Semester</th>
+            <th scope="col">Year</th>
+            <th scope="col">Seat Available</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for subject in all_subject %}
+            <tr>
+                <th scope="row">{{subject.subjectCode}}</th>
+                <td>{{subject.subjectName}}</td>
+                <td>{{subject.semester}}</td>
+                <td>{{subject.year}}</td>
+                <td>{{subject.seatAvailable}}</td>
+                <td>{{subject.status}}</td>
+                <td><a href="/add_subject/{{subject.subjectCode}}" class="btn btn-success">Add Subject</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+{% endblock  %}

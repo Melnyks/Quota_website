@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>my_quota</title>
+{% endblock  %}
+
+{% block content %}
+    <h1 class="container" style="text-align: center;">My Subject List</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Subject Code</th>
+            <th scope="col">Subject Name</th>
+            <th scope="col">Semester</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for subject in mySubject %}
+            <tr>
+                <th scope="row">{{subject.subjectCode}}</th>
+                <td>{{subject.subjectName}}</td>
+                <td>{{subject.semester}}</td>
+                <td>{{subject.year}}</td>
+                <td><a href="/del_subject/{{subject.subjectCode}}" class="btn btn-danger">Withdraw</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+{% endblock  %}
